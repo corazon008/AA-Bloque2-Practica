@@ -99,9 +99,11 @@ model = Sequential(
     [
         # Capa de entrada con 4 neuronas y función de activación ReLU
         Input(shape=(X_train_scaled.shape[1],)),
-        Dense(4, activation="relu"),
+        Dense(256, activation="relu"),
         # Capa oculta con 2 neuronas y activación ReLU
-        Dense(2, activation="relu"),
+        Dense(256, activation="relu"),
+        Dense(256, activation="relu"),
+        Dense(256, activation="relu"),
         # Capa de salida con 1 neurona (activación sigmoidea para clasificación binaria)
         Dense(1, activation="sigmoid"),
     ]
@@ -109,7 +111,7 @@ model = Sequential(
 
 # Compilar el modelo
 model.compile(
-    optimizer=SGD(learning_rate=5.0),
+    optimizer=SGD(learning_rate=0.002),
     loss="binary_crossentropy",
     metrics=["accuracy"],
 )
@@ -118,8 +120,8 @@ model.compile(
 history = model.fit(
     X_train_scaled,
     y_train,
-    epochs=5,
-    batch_size=4,
+    epochs=200,
+    batch_size=32,
     validation_data=(X_test_scaled, y_test),
     verbose=2,
 )

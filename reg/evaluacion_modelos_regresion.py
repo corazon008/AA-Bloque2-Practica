@@ -38,11 +38,11 @@ X_test = scaler.transform(X_test)
 
 # Cargar los modelos entrenados previamente
 modelo_arbol = joblib.load(
-    "modelo_arbol_regresion_op.pkl"
+    "modelo_arbol_regresion.pkl"
 )  # Cargar el modelo de Árbol de Decisión
-modelo_svm = joblib.load("modelo_svm_regresion_op.pkl")  # Cargar el modelo SVM
+modelo_svm = joblib.load("modelo_svm_regresion.pkl")  # Cargar el modelo SVM
 modelo_regresion = joblib.load(
-    "modelo_regresion_SGD_op.pkl"
+    "modelo_regresion_SGD.pkl"
 )  # Cargar el modelo de Regresión Logística
 modelo_nn = tf.keras.models.load_model(
     "modelo_red_neuronal_regresion.h5"

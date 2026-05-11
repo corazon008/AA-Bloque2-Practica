@@ -52,12 +52,12 @@ modelo = Sequential(
 )
 
 # Compilar y entrenar el modelo
-modelo.compile(optimizer=Adam(learning_rate=0.1), loss="mean_squared_error")
+modelo.compile(optimizer=Adam(learning_rate=0.001), loss="mean_squared_error")
 history = modelo.fit(
     X_train,
     y_train,
     epochs=20,
-    batch_size=16,
+    batch_size=64,
     verbose=1,
     validation_data=(X_test, y_test),
 )

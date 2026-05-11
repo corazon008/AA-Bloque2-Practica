@@ -104,12 +104,12 @@ X_test_scaled = scaler.transform(X_test)
 # Definir los modelos
 # Árbol de decisión max_depth marca la profuncidad del árbol
 dt_model = DecisionTreeClassifier(
-    max_depth=1, min_samples_split=10, random_state=42
+    max_depth=10, min_samples_split=20, random_state=42
 )
 
 # KNN (n_neighbors marca el número de vecinos a considerar)
 knn_model = KNeighborsClassifier(
-    n_neighbors=1, weights="uniform", metric="minkowski"
+    n_neighbors=5, weights="distance", metric="minkowski"
 )
 
 # Regresión logística (C es el parámetro de penalización del modelo)
